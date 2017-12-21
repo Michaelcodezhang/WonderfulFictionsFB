@@ -16,6 +16,7 @@ router.prefix('/api')
     ctx.response.body='<h1>This is a http test~</h1>'
   })
   .post('/login', (ctx, next) => {
+    console.log(ctx.request)
     if (ctx.request.body.name === 'root' && ctx.request.body.password === '123456') {
       ctx.response.type='application/json'
       ctx.response.body = {
