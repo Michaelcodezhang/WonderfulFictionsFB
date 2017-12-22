@@ -48,4 +48,4 @@ app.use(spa(path.join(__dirname, 'dist'), {
   routeBase: '/'
 }))
 
-app.listen(8090)
+app.listen(80)
