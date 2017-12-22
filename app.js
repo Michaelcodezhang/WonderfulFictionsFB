@@ -32,7 +32,11 @@ router.prefix('/api')
     if (ctx.request.body.name === 'root' && ctx.request.body.password === '123456') {
       ctx.response.type = 'application/json'
       ctx.response.body = {
-        code: 0
+        code: 0,
+        data: {
+          userName: ctx.request.body.name,
+          authority: 1
+        }
       }
     } else if (ctx.request.body.name !== 'root') {
         ctx.response.type = 'application/json'
