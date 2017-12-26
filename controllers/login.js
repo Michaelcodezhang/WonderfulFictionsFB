@@ -5,7 +5,7 @@ let fn_login = async (ctx, next) => {
     const dcDatas = JSON.parse(dcDatasTxt)
     const adminDatasTxt = fs.readFileSync('./dataBase/userDatas/Administrator.txt','utf-8')
     const adminDatas = JSON.parse(adminDatasTxt)
-    const userName = ctx.request.body.name
+    const userName = ctx.request.body.userName
     const password = ctx.request.body.password
     let isAdmin = false
     adminDatas.map((adminData) => {
