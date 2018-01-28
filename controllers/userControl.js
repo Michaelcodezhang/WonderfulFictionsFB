@@ -1,5 +1,18 @@
 const fs = require('fs')
 
+let fn_userShow = async(ctx, next) => {
+    const dcDatasTxt = fs.readFileSync('./dataBase/userDatas/domesticConsumer.txt','utf-8')
+    const dcDatas = JSON.parse(dcDatasTxt)
+    const adminDatasTxt = fs.readFileSync('./dataBase/userDatas/Administrator.txt','utf-8')
+    const adminDatas = JSON.parse(adminDatasTxt)
+    ctx.response.type = 'application/type'
+    ctx.response.body = {
+        code: 0,
+        adminLists: adminDatas,
+        dcLists: dcDatas
+    }
+}
+
 let fn_userDelete = async (ctx, next) => {
     const dcDatasTxt = fs.readFileSync('./dataBase/userDatas/domesticConsumer.txt','utf-8')
     const dcDatas = JSON.parse(dcDatasTxt)
@@ -61,5 +74,6 @@ let fn_userDelete = async (ctx, next) => {
 }
 
 module.exports = {
+    'GET /api/userShow':fn_userShow,
     'POST /api/userDelete':fn_userDelete
 }
